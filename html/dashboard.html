@@ -1,0 +1,1188 @@
+<!-- Dashboard - Trang chính sau khi đăng nhập -->
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Love Map Dashboard</title>
+    <link rel="stylesheet" href="../style/index.css" />
+    <link rel="stylesheet" href="../style/dashboard.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="logo">Love Map</div>
+        <ul class="nav-links">
+          <li><a href="#">Bản Đồ</a></li>
+          <li><a href="#">Kỷ Niệm</a></li>
+          <li><a href="#">Nhật Ký</a></li>
+          <li><a href="#">Quà Tặng</a></li>
+          <li><a href="#">Chia Sẻ</a></li>
+          <li><a href="#">Bảng Giá</a></li>
+          <li><a href="#">Về Chúng Tôi</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a href="#" class="try-btn hidden">Dùng Thử</a>
+          <a href="#" class="login-btn hidden">Đăng Nhập</a>
+          <div class="user-avatar" id="userAvatar">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
+              alt="User Avatar"
+            />
+            <div class="avatar-dropdown" id="avatarDropdown">
+              <a href="#" id="profileLink">Hồ sơ User</a>
+              <a href="#" id="logoutLink">Đăng xuất</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Kỷ Niệm Của Bạn, Bản Đồ Của Tình Yêu</h1>
+        <p>
+          Lưu giữ những khoảnh khắc đáng nhớ và địa điểm đặc biệt trong hành
+          trình tình yêu của bạn. Tạo bản đồ cá nhân với những kỷ niệm đẹp nhất.
+        </p>
+        <div class="hero-buttons">
+          <a href="#" class="btn primary hidden">Dùng Thử Ngay</a>
+          <a href="#" class="btn secondary">Khám Phá Tính Năng</a>
+        </div>
+      </div>
+      <div class="hero-bg"></div>
+    </section>
+    <!-- New How-to-use Section -->
+    <section class="how-to-use-section">
+      <h2 class="how-to-use-title-index">Cách Sử Dụng</h2>
+      <div class="how-to-use-steps-index">
+        <div class="step-card-index">
+          <div class="step-number-index">1</div>
+          <div class="step-title-index">Đăng Ký Tài Khoản</div>
+          <div class="step-desc-index">
+            Tạo tài khoản miễn phí để bắt đầu hành trình lưu giữ kỷ niệm của
+            bạn.
+          </div>
+        </div>
+        <div class="step-card-index">
+          <div class="step-number-index">2</div>
+          <div class="step-title-index">Đánh Dấu Địa Điểm</div>
+          <div class="step-desc-index">
+            Thêm địa điểm đặc biệt vào bản đồ và gắn kèm hình ảnh, ghi chú kỷ
+            niệm.
+          </div>
+        </div>
+        <div class="step-card-index">
+          <div class="step-number-index">3</div>
+          <div class="step-title-index">Khám Phá & Chia Sẻ</div>
+          <div class="step-desc-index">
+            Xem lại hành trình tình yêu của bạn và chia sẻ với người thân yêu
+            nếu muốn.
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Section Tình Yêu Map Preview -->
+    <section class="love-map-preview-section">
+      <h2 class="love-map-preview-title">Xem Thử Bản Đồ Tình Yêu</h2>
+      <p class="love-map-preview-subtitle">
+        Dưới đây là ví dụ về cách bản đồ tình yêu của bạn sẽ hiển thị. Đăng ký
+        ngay để tạo bản đồ của riêng bạn!
+      </p>
+      <div class="love-map-container">
+        <div id="map" class="love-map-canvas"></div>
+        <div class="love-map-sidebar">
+          <h3 class="sidebar-title">Địa Điểm Của Chúng Ta</h3>
+          <p class="sidebar-subtitle">3 địa điểm đã lưu</p>
+          <div class="search-box">
+            <input
+              type="text"
+              placeholder="Tìm kiếm địa điểm..."
+              class="search-input"
+            />
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/54/54481.png"
+              alt="search"
+              class="search-icon"
+            />
+          </div>
+          <div class="location-list" id="locationList">
+            <!-- Location items will be populated by JavaScript -->
+          </div>
+          <button class="add-location-btn">+ Thêm Địa Điểm</button>
+        </div>
+      </div>
+    </section>
+    <!-- New Feature Section -->
+    <section class="feature-section" id="discoverFeaturesSection">
+      <h2 class="feature-title">Khám Phá Các Tính Năng</h2>
+      <p class="feature-subtitle">
+        Love Map cung cấp nhiều tính năng độc đáo để lưu giữ và chia sẻ những
+        khoảnh khắc đáng nhớ của bạn.
+      </p>
+      <div class="discover-feature-list">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/833/833472.png"
+              alt="Interactive Map"
+            />
+          </div>
+          <div class="feature-name">Bản Đồ Tương Tác</div>
+          <div class="feature-desc">
+            Đánh dấu và quản lý địa điểm yêu thích của bạn
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/747/747376.png"
+              alt="Collection"
+            />
+          </div>
+          <div class="feature-name">Bộ Sưu Tập</div>
+          <div class="feature-desc">
+            Lưu trữ hình ảnh và kỷ niệm theo từng địa điểm
+          </div>
+        </div>
+        <div class="feature-card" id="featureShareCard">
+          <div class="feature-icon">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png"
+              alt="Share"
+            />
+          </div>
+          <div class="feature-name">Chia Sẻ</div>
+          <div class="feature-desc">
+            Chia sẻ khoảnh khắc đặc biệt với người thân yêu
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Section Tính Năng Nổi Bật -->
+    <section class="feature-section">
+      <h2 class="feature-title">Tính Năng Nổi Bật</h2>
+      <div class="feature-list">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/833/833472.png"
+              alt="Đánh Dấu Kỷ Niệm"
+            />
+          </div>
+          <div class="feature-name">Đánh Dấu Kỷ Niệm</div>
+          <div class="feature-desc">
+            Đánh dấu những địa điểm đặc biệt mà bạn và người yêu đã đi qua trên
+            bản đồ với biểu tượng trái tim đáng yêu.
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/747/747376.png"
+              alt="Lưu Trữ Hình Ảnh"
+            />
+          </div>
+          <div class="feature-name">Lưu Trữ Hình Ảnh</div>
+          <div class="feature-desc">
+            Tải lên và lưu trữ những bức ảnh đáng nhớ tại mỗi địa điểm, tạo nên
+            album kỷ niệm độc đáo của riêng bạn.
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png"
+              alt="Chia Sẻ Kỷ Niệm"
+            />
+          </div>
+          <div class="feature-name">Chia Sẻ Kỷ Niệm</div>
+          <div class="feature-desc">
+            Dễ dàng chia sẻ bản đồ tình yêu của bạn với người thân và bạn bè,
+            hoặc giữ riêng tư chỉ dành cho hai người.
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/1828/1828970.png"
+              alt="Nhật Ký Tình Yêu"
+            />
+          </div>
+          <div class="feature-name">Nhật Ký Tình Yêu</div>
+          <div class="feature-desc">
+            Ghi lại những khoảnh khắc đặc biệt với nhật ký tình yêu, kèm theo
+            hình ảnh và cảm xúc của hai người.
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/1828/1828976.png"
+              alt="Nhắc Nhở Ngày Đặc Biệt"
+            />
+          </div>
+          <div class="feature-name">Nhắc Nhở Ngày Đặc Biệt</div>
+          <div class="feature-desc">
+            Không bao giờ quên những ngày quan trọng với tính năng nhắc nhở
+            thông minh và tự động.
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/1828/1828961.png"
+              alt="Gợi Ý Quà Tặng"
+            />
+          </div>
+          <div class="feature-name">Gợi Ý Quà Tặng</div>
+          <div class="feature-desc">
+            Nhận gợi ý quà tặng phù hợp dựa trên sở thích và dịp đặc biệt của
+            người ấy.
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/1828/1828960.png"
+              alt="Video Kỷ Niệm"
+            />
+          </div>
+          <div class="feature-name">Video Kỷ Niệm</div>
+          <div class="feature-desc">
+            Tự động tạo video kỷ niệm từ những hình ảnh và khoảnh khắc đã lưu
+            trữ.
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/1828/1828972.png"
+              alt="Lộ Trình Hẹn Hò"
+            />
+          </div>
+          <div class="feature-name">Lộ Trình Hẹn Hò</div>
+          <div class="feature-desc">
+            Lên kế hoạch và tạo lộ trình hẹn hò hoàn hảo với những địa điểm lãng
+            mạn.
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Phần đánh giá người dùng -->
+    <section class="testimonial-section">
+      <h2 class="testimonial-title">Người Dùng Nói Gì</h2>
+      <div class="testimonial-list">
+        <div class="testimonial-card">
+          <div class="testimonial-user">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
+              alt="avatar"
+              class="testimonial-avatar"
+            />
+            <div>
+              <div class="testimonial-name">Ngô Trung Chiến</div>
+              <div class="testimonial-location">Hà Nội</div>
+            </div>
+          </div>
+          <div class="testimonial-content">
+            <em
+              >"Love Map giúp tôi và sử tử lưu giữ những kỷ niệm đẹp trong 1 năm
+              yêu nhau. Mỗi lần xem lại bản đồ, chúng tôi lại thấy hạnh phúc vì
+              đã cùng nhau đi qua nhiều nơi."</em
+            >
+          </div>
+          <div class="testimonial-stars">★★★★★</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-user">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
+              alt="avatar"
+              class="testimonial-avatar"
+            />
+            <div>
+              <div class="testimonial-name">Vẫn là Ngô Trung Chiến</div>
+              <div class="testimonial-location">Cũng ở Hà Nội</div>
+            </div>
+          </div>
+          <div class="testimonial-content">
+            <em>"Tôi không biết nói gfi hơn. Ứng dụng tuyệt vời!"</em>
+          </div>
+          <div class="testimonial-stars">★★★★★</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-user">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
+              alt="avatar"
+              class="testimonial-avatar"
+            />
+            <div>
+              <div class="testimonial-name">Lại là Ngô Trung Chiến</div>
+              <div class="testimonial-location">Lại đến từ Hà Nội</div>
+            </div>
+          </div>
+          <div class="testimonial-content">
+            <em
+              >"Giao diện dễ sử dụng, thiết kế đẹp mắt. Tôi thích cách có thể
+              gắn hình ảnh và ghi chú cho từng địa điểm. Đây là cách hoàn hảo để
+              lưu giữ hành trình tình yêu của chúng tôi."</em
+            >
+          </div>
+          <div class="testimonial-stars">★★★★★</div>
+        </div>
+      </div>
+    </section>
+    <!-- Phần cảm ơn cuối trang -->
+    <section class="thankyou-section">
+      <div class="thankyou-content">
+        <h2 class="thankyou-title">Cảm ơn bạn đã tin tưởng Love Map!</h2>
+        <p class="thankyou-desc">
+          Chúng tôi luôn nỗ lực để mang đến cho bạn trải nghiệm tuyệt vời nhất
+          trong hành trình lưu giữ kỷ niệm tình yêu. Nếu bạn có góp ý hoặc cần
+          hỗ trợ, đừng ngần ngại liên hệ với chúng tôi.
+        </p>
+      </div>
+    </section>
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-col footer-brand">
+          <div class="footer-logo">Love Map</div>
+          <div class="footer-desc">
+            Nền tảng lưu giữ hành trình tình yêu của bạn thông qua bản đồ kỷ
+            niệm độc đáo và cá nhân hóa.
+          </div>
+          <div class="footer-social">
+            <a href="#"
+              ><img
+                src="https://cdn-icons-png.flaticon.com/512/733/733547.png"
+                alt="Facebook"
+            /></a>
+            <a href="#"
+              ><img
+                src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"
+                alt="Instagram"
+            /></a>
+            <a href="#"
+              ><img
+                src="https://cdn-icons-png.flaticon.com/512/733/733579.png"
+                alt="X"
+            /></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <div class="footer-title">Liên Kết Nhanh</div>
+          <ul>
+            <li><a href="#">Trang Chủ</a></li>
+            <li><a href="#">Tính Năng</a></li>
+            <li><a href="#">Bảng Giá</a></li>
+            <li><a href="#">Liên Hệ</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <div class="footer-title">Pháp Lý</div>
+          <ul>
+            <li><a href="#">Điều Khoản Sử Dụng</a></li>
+            <li><a href="#">Chính Sách Bảo Mật</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-copyright">
+          © 2025 Love Map. Tất cả quyền được bảo lưu.
+        </div>
+        <div class="footer-payment">
+          Thanh toán an toàn qua
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/196/196566.png"
+            alt="Visa"
+          />
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/196/196578.png"
+            alt="Mastercard"
+          />
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/196/196565.png"
+            alt="Paypal"
+          />
+        </div>
+      </div>
+    </footer>
+    <!-- Modal thông báo -->
+    <div class="modal" id="notificationModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/1828/1828640.png"
+            alt="close"
+            class="close-modal"
+          />
+        </div>
+        <div class="modal-body">
+          <div class="modal-icon">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/1828/1828640.png"
+              alt="heart"
+              class="heart-icon"
+            />
+          </div>
+          <h3>Vui lòng đăng ký để sử dụng dịch vụ!</h3>
+          <p>Đăng ký ngay để khám phá những tính năng tuyệt vời của Love Map</p>
+          <div class="modal-buttons">
+            <a href="#" class="btn primary">Đăng Ký Ngay</a>
+            <a href="#" class="btn secondary">Đăng Nhập</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal Đăng Nhập/Đăng Ký -->
+    <div class="auth-modal" id="authModal">
+      <div class="auth-modal-content">
+        <div class="auth-tabs">
+          <button class="auth-tab active" id="loginTab">Đăng Nhập</button>
+          <button class="auth-tab" id="registerTab">Đăng Ký</button>
+        </div>
+        <form class="auth-form" id="loginForm">
+          <label>Email</label>
+          <div class="auth-input">
+            <span class="auth-icon"
+              ><img
+                src="https://cdn-icons-png.flaticon.com/512/561/561127.png"
+                alt="email"
+            /></span>
+            <input type="email" placeholder="Nhập email của bạn" required />
+          </div>
+          <label>Mật Khẩu</label>
+          <div class="auth-input">
+            <span class="auth-icon"
+              ><img
+                src="https://cdn-icons-png.flaticon.com/512/3064/3064155.png"
+                alt="password"
+            /></span>
+            <input
+              type="password"
+              placeholder="Nhập mật khẩu của bạn"
+              required
+            />
+          </div>
+          <div class="auth-options">
+            <label><input type="checkbox" /> Ghi nhớ đăng nhập</label>
+            <a href="#" class="auth-link">Quên mật khẩu?</a>
+          </div>
+          <button type="submit" class="auth-btn">Đăng Nhập</button>
+          <div class="auth-or">Hoặc đăng nhập với</div>
+          <div class="auth-social">
+            <a href="#"
+              ><img
+                src="https://cdn-icons-png.flaticon.com/512/281/281764.png"
+                alt="Google"
+            /></a>
+            <a href="#"
+              ><img
+                src="https://cdn-icons-png.flaticon.com/512/733/733547.png"
+                alt="Facebook"
+            /></a>
+          </div>
+        </form>
+        <form class="auth-form" id="registerForm" style="display: none">
+          <label>Email</label>
+          <div class="auth-input">
+            <span class="auth-icon"
+              ><img
+                src="https://cdn-icons-png.flaticon.com/512/561/561127.png"
+                alt="email"
+            /></span>
+            <input type="email" placeholder="Nhập email của bạn" required />
+          </div>
+          <label>Mật Khẩu</label>
+          <div class="auth-input">
+            <span class="auth-icon"
+              ><img
+                src="https://cdn-icons-png.flaticon.com/512/3064/3064155.png"
+                alt="password"
+            /></span>
+            <input
+              type="password"
+              placeholder="Nhập mật khẩu của bạn"
+              required
+            />
+          </div>
+          <label>Xác nhận mật khẩu</label>
+          <div class="auth-input">
+            <span class="auth-icon"
+              ><img
+                src="https://cdn-icons-png.flaticon.com/512/3064/3064155.png"
+                alt="password"
+            /></span>
+            <input type="password" placeholder="Nhập lại mật khẩu" required />
+          </div>
+          <button type="submit" class="auth-btn">Đăng Ký</button>
+        </form>
+        <span class="auth-close" id="authClose">&times;</span>
+      </div>
+    </div>
+    <!-- Modal Chào Mừng -->
+    <div class="welcome-modal" id="welcomeModal">
+      <div class="welcome-modal-content">
+        <span class="welcome-close" id="welcomeClose">&times;</span>
+        <h2 id="welcomeTitle" class="welcome-main-title">
+          Chào mừng, [Tên User]!
+        </h2>
+        <p class="welcome-subtitle">Hãy cùng khám phá Love Map nhé!</p>
+        <h3 class="how-to-use-title">Cách Sử Dụng</h3>
+        <div class="how-to-use-steps">
+          <div class="step-card">
+            <div class="step-number">1</div>
+            <div class="step-title">Đăng Ký Tài Khoản</div>
+            <div class="step-desc">
+              Tạo tài khoản miễn phí để bắt đầu hành trình lưu giữ kỷ niệm của
+              bạn.
+            </div>
+          </div>
+          <div class="step-card">
+            <div class="step-number">2</div>
+            <div class="step-title">Đánh Dấu Địa Điểm</div>
+            <div class="step-desc">
+              Thêm địa điểm đặc biệt vào bản đồ và gắn kèm hình ảnh, ghi chú kỷ
+              niệm.
+            </div>
+          </div>
+          <div class="step-card">
+            <div class="step-number">3</div>
+            <div class="step-title">Khám Phá & Chia Sẻ</div>
+            <div class="step-desc">
+              Xem lại hành trình tình yêu của bạn và chia sẻ với người thân yêu
+              nếu muốn.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Location Detail Modal -->
+    <div class="modal location-detail-modal" id="locationDetailModal">
+      <div class="modal-content location-detail-content">
+        <div class="modal-header">
+          <h3 class="modal-title">Chi Tiết Địa Điểm</h3>
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/1828/1828640.png"
+            alt="close"
+            class="close-modal detail-close"
+          />
+        </div>
+        <div class="modal-body location-detail-body">
+          <div class="image-carousel">
+            <img
+              alt="Memory Image"
+              class="carousel-img"
+              id="detailCarouselImg"
+            />
+            <button class="carousel-nav prev" id="detailCarouselPrev">
+              &lt;
+            </button>
+            <button class="carousel-nav next" id="detailCarouselNext">
+              &gt;
+            </button>
+            <div class="image-counter" id="detailImageCounter">1/3</div>
+            <input
+              type="file"
+              id="detailImageUpload"
+              multiple
+              accept="image/*"
+              style="display: none"
+            />
+            <button class="upload-image-btn" id="uploadImageBtn">
+              Tải Ảnh Lên
+            </button>
+          </div>
+          <h4 class="detail-name" id="detailLocationName">Nhà Hàng Romantic</h4>
+          <p class="detail-address" id="detailLocationAddress">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/684/684809.png"
+              alt="location icon"
+              class="detail-icon"
+            />
+            <span id="detailAddressText"
+              >15 Nguyễn Huệ, Quận 1, TP. Hồ Chí Minh</span
+            >
+          </p>
+          <p class="detail-date" id="detailLocationDate">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/2838/2838912.png"
+              alt="calendar icon"
+              class="detail-icon"
+            />
+            <span id="detailDateText">12 tháng 6, 2023</span>
+          </p>
+          <div class="detail-tags" id="detailLocationTags">
+            <span class="location-tag">Hẹn hò</span>
+            <span class="location-tag">Nhà hàng</span>
+          </div>
+
+          <h5 class="memory-note-title">Ghi Chú Kỷ Niệm</h5>
+          <textarea
+            id="detailMemoryNote"
+            class="memory-note-content"
+            placeholder="Viết về kỷ niệm của bạn tại đây..."
+            rows="5"
+          ></textarea>
+
+          <div class="detail-actions">
+            <button class="btn primary small-btn" id="saveLocationBtn">
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/1828/1828914.png"
+                alt="save icon"
+                class="btn-icon"
+              />
+              Lưu Thay Đổi
+            </button>
+            <button
+              class="btn secondary small-btn share-btn"
+              data-id="location-1"
+              data-title="Nhà Hàng Romantic"
+              data-description="Kỷ niệm đặc biệt tại nhà hàng lãng mạn"
+              data-image="https://raw.githubusercontent.com/Chien2311/LoveMaps/main/assets/images/romantic_restaurant_1.jpg"
+            >
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/1828/1828974.png"
+                alt="share icon"
+                class="btn-icon"
+              />
+              Chia Sẻ
+            </button>
+            <button class="btn danger small-btn" id="deleteLocationBtn">
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/1828/1828965.png"
+                alt="delete icon"
+                class="btn-icon"
+              />
+              Xóa
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal memory-collection-modal" id="memoryCollectionModal">
+      <div class="modal-content memory-collection-content">
+        <div class="collection-header">
+          <h3 class="collection-title">Bộ Sưu Tập Kỷ Niệm</h3>
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/1828/1828640.png"
+            alt="close"
+            class="close-modal close-collection-modal"
+            id="closeCollectionModal"
+          />
+        </div>
+        <div class="memory-cards-grid" id="memoryCardsGrid">
+          <!-- Memory cards will be populated by JavaScript -->
+          <div class="memory-card">
+            <div class="memory-card-image-wrapper">
+              <img
+                src="https://raw.githubusercontent.com/Chien2311/LoveMaps/main/assets/images/romantic_restaurant_1.jpg"
+                alt="Kỷ Niệm Biển"
+                class="memory-card-image"
+              />
+              <span class="memory-card-favorite"
+                ><img
+                  src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png"
+                  alt="favorite"
+              /></span>
+            </div>
+            <div class="memory-card-info">
+              <h4 class="memory-card-title">Kỷ Niệm Biển</h4>
+              <p class="memory-card-date">Ngày 15/08/2023</p>
+              <div class="memory-card-tags">
+                <span class="location-tag">Biển</span>
+                <span class="location-tag">Hoàng hôn</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="memory-card">
+            <div class="memory-card-image-wrapper">
+              <img
+                src="https://raw.githubusercontent.com/Chien2311/LoveMaps/main/assets/images/bakery_1.jpg"
+                alt="Quán Cafe Yêu Thích"
+                class="memory-card-image"
+              />
+              <span class="memory-card-favorite"
+                ><img
+                  src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png"
+                  alt="favorite"
+              /></span>
+            </div>
+            <div class="memory-card-info">
+              <h4 class="memory-card-title">Quán Cafe Yêu Thích</h4>
+              <p class="memory-card-date">Ngày 22/09/2023</p>
+              <div class="memory-card-tags">
+                <span class="location-tag">Cafe</span>
+                <span class="location-tag">Hẹn hò</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="memory-card">
+            <div class="memory-card-image-wrapper">
+              <img
+                src="https://raw.githubusercontent.com/Chien2311/LoveMaps/main/assets/images/love_bridge_2.jpg"
+                alt="Tối Lãng Mạn"
+                class="memory-card-image"
+              />
+              <span class="memory-card-favorite"
+                ><img
+                  src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png"
+                  alt="favorite"
+              /></span>
+            </div>
+            <div class="memory-card-info">
+              <h4 class="memory-card-title">Tối Lãng Mạn</h4>
+              <p class="memory-card-date">Ngày 30/10/2023</p>
+              <div class="memory-card-tags">
+                <span class="location-tag">Nhà hàng</span>
+                <span class="location-tag">Kỷ niệm</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="add-memory-btn" id="addMemoryBtn">
+          + Thêm Kỷ Niệm Mới
+        </button>
+      </div>
+    </div>
+    <div class="modal journal-modal" id="journalModal">
+      <div class="modal-content journal-content">
+        <div class="journal-header">
+          <h3 class="journal-title">Viết Nhật Ký Kỷ Niệm</h3>
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/1828/1828640.png"
+            alt="close"
+            class="close-modal close-journal-modal"
+            id="closeJournalModal"
+          />
+        </div>
+        <div class="journal-body">
+          <label for="journalDate">Ngày:</label>
+          <input type="date" id="journalDate" class="modal-editable-input" />
+          <span id="journalDateError" class="error-message"></span>
+
+          <label for="journalLocation">Địa điểm:</label>
+          <input
+            type="text"
+            id="journalLocation"
+            class="modal-editable-input"
+            placeholder="Nhập địa điểm kỷ niệm"
+          />
+
+          <label for="journalImages">Ảnh kỷ niệm:</label>
+          <input
+            type="file"
+            id="journalImageUpload"
+            multiple
+            accept="image/*"
+            style="display: none"
+          />
+          <button class="upload-image-btn" id="uploadJournalImageBtn">
+            Tải Ảnh Lên
+          </button>
+          <div class="journal-image-preview" id="journalImagePreview"></div>
+
+          <label for="journalContent">Nội dung nhật ký:</label>
+          <textarea
+            id="journalContent"
+            class="memory-note-content"
+            placeholder="Viết kỷ niệm của bạn tại đây..."
+            rows="10"
+          ></textarea>
+          <span id="journalContentError" class="error-message"></span>
+
+          <div class="journal-actions">
+            <button class="btn primary small-btn" id="saveJournalBtn">
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/1828/1828914.png"
+                alt="save icon"
+                class="btn-icon"
+              />
+              Lưu Nhật Ký
+            </button>
+            <button
+              class="btn secondary small-btn share-btn"
+              data-id="journal-1"
+              data-title="Nhật Ký Tình Yêu"
+              data-description="Ghi lại những khoảnh khắc đáng nhớ của chúng ta"
+              data-image="https://raw.githubusercontent.com/Chien2311/LoveMaps/main/assets/images/love_bridge_2.jpg"
+            >
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/1828/1828974.png"
+                alt="share icon"
+                class="btn-icon"
+              />
+              Chia Sẻ
+            </button>
+            <button class="btn danger small-btn" id="deleteJournalBtn">
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/1828/1828965.png"
+                alt="delete icon"
+                class="btn-icon"
+              />
+              Xóa Nhật Ký
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal journal-success-modal" id="journalSuccessModal">
+      <div class="modal-content journal-success-content">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/4436/4436481.png"
+          alt="success icon"
+          class="success-icon"
+        />
+        <h3 class="success-title">Nhật Ký Đã Lưu Thành Công!</h3>
+        <p class="success-message-text">Kỷ niệm của bạn đã được ghi lại.</p>
+        <button
+          class="btn primary small-btn close-success-modal"
+          id="closeJournalSuccessModal"
+        >
+          Đóng
+        </button>
+      </div>
+    </div>
+    <div class="modal journal-list-modal" id="journalListModal">
+      <div class="modal-content journal-list-content">
+        <div class="journal-list-header">
+          <h3 class="journal-list-title">Nhật Ký Tình Yêu Của Bạn</h3>
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/1828/1828640.png"
+            alt="close"
+            class="close-modal close-journal-list-modal"
+            id="closeJournalListModal"
+          />
+        </div>
+        <div class="journal-cards-grid" id="journalCardsGrid">
+          <!-- Journal cards will be populated by JavaScript -->
+        </div>
+        <button class="add-new-journal-btn" id="addNewJournalBtn">
+          + Thêm Nhật Ký Mới
+        </button>
+      </div>
+    </div>
+    <div class="modal confirmation-modal" id="deleteConfirmationModal">
+      <div class="modal-content confirmation-content">
+        <div class="confirmation-header">
+          <h3 class="confirmation-title">Xác Nhận Xóa</h3>
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/1828/1828640.png"
+            alt="close"
+            class="close-modal close-confirmation-modal"
+            id="closeConfirmationModal"
+          />
+        </div>
+        <div class="confirmation-body">
+          <p class="confirmation-message">
+            Bạn có chắc chắn muốn xóa mục này không?
+          </p>
+          <div class="confirmation-actions">
+            <button class="btn danger small-btn" id="confirmDeleteBtn">
+              Xác Nhận
+            </button>
+            <button class="btn secondary small-btn" id="cancelDeleteBtn">
+              Hủy
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal profile-modal" id="profileModal">
+      <div class="modal-content profile-content">
+        <div class="profile-header">
+          <h3 class="profile-title">Thông Tin Cá Nhân</h3>
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/1828/1828640.png"
+            alt="close"
+            class="close-modal close-profile-modal"
+            id="closeProfileModal"
+          />
+        </div>
+        <div class="profile-body">
+          <div class="profile-avatar-upload">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
+              alt="User Avatar"
+              id="profileAvatar"
+              class="profile-avatar"
+            />
+            <input
+              type="file"
+              id="avatarUploadInput"
+              accept="image/*"
+              style="display: none"
+            />
+            <button class="upload-image-btn small-btn" id="uploadAvatarBtn">
+              Tải Ảnh Lên
+            </button>
+          </div>
+          <div class="profile-info-item">
+            <span class="info-label">Email:</span>
+            <span class="info-value" id="profileEmail"></span>
+          </div>
+          <div class="profile-info-item">
+            <span class="info-label">Tên Người Dùng:</span>
+            <input
+              type="text"
+              id="profileUsername"
+              class="info-editable-input"
+              placeholder="Tên người dùng / cặp đôi"
+            />
+          </div>
+          <div class="profile-info-item">
+            <span class="info-label">Ngày Bắt Đầu Yêu:</span>
+            <input
+              type="date"
+              id="profileLoveDate"
+              class="info-editable-input"
+            />
+          </div>
+          <div class="profile-info-item">
+            <span class="info-label">Mô Tả Ngắn:</span>
+            <textarea
+              id="profileBio"
+              class="info-editable-input"
+              placeholder="Ví dụ: Cùng nhau đi khắp thế gian!"
+              rows="3"
+            ></textarea>
+          </div>
+
+          <h4 class="profile-section-title">Thống Kê Hành Trình Yêu</h4>
+          <div class="profile-stats-section">
+            <div class="stat-item">
+              <span class="stat-value" id="statsLocationsCheckedIn">0</span>
+              <span class="stat-label">Địa điểm đã check-in</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value" id="statsFirstLocation">N/A</span>
+              <span class="stat-label">Nơi đầu tiên</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value" id="statsLatestLocation">N/A</span>
+              <span class="stat-label">Địa điểm gần nhất</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value" id="statsFavoriteLocation">N/A</span>
+              <span class="stat-label">Nơi yêu thích nhất</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value" id="statsDaysTogether">0</span>
+              <span class="stat-label">Ngày bên nhau</span>
+            </div>
+          </div>
+          <button
+            class="btn primary small-btn"
+            id="saveProfileBtn"
+            style="display: none"
+          >
+            Lưu Hồ Sơ
+          </button>
+          <button class="btn primary small-btn" id="editProfileBtn">
+            Chỉnh Sửa Hồ Sơ
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="modal profile-success-modal" id="profileSuccessModal">
+      <div class="modal-content profile-success-content">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/4436/4436481.png"
+          alt="success icon"
+          class="success-icon"
+        />
+        <h3 class="success-title">Hồ Sơ Đã Lưu Thành Công!</h3>
+        <p class="success-message-text">
+          Thông tin hồ sơ của bạn đã được cập nhật.
+        </p>
+        <button
+          class="btn primary small-btn close-success-modal"
+          id="closeProfileSuccessModal"
+        >
+          Đóng
+        </button>
+      </div>
+    </div>
+    <div class="modal itinerary-modal" id="itineraryModal">
+      <div class="modal-content itinerary-content">
+        <div class="itinerary-header">
+          <h3 class="itinerary-title">Lên Kế Hoạch Hẹn Hò</h3>
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/1828/1828640.png"
+            alt="close"
+            class="close-modal close-itinerary-modal"
+            id="closeItineraryModal"
+          />
+        </div>
+        <div class="itinerary-body">
+          <label for="itineraryTitle">Tiêu đề lộ trình:</label>
+          <input
+            type="text"
+            id="itineraryTitle"
+            class="modal-editable-input"
+            placeholder="Ví dụ: Hẹn hò cuối tuần tại Đà Lạt"
+          />
+
+          <label for="itineraryDate">Ngày hẹn hò:</label>
+          <input type="date" id="itineraryDate" class="modal-editable-input" />
+
+          <label for="itineraryLocation">Địa điểm chính:</label>
+          <input
+            type="text"
+            id="itineraryLocation"
+            class="modal-editable-input"
+            placeholder="Ví dụ: Hồ Xuân Hương"
+          />
+
+          <label for="itineraryDescription">Mô tả/Chi tiết:</label>
+          <textarea
+            id="itineraryDescription"
+            class="memory-note-content"
+            placeholder="Mô tả chi tiết kế hoạch, hoạt động..."
+            rows="6"
+          ></textarea>
+
+          <div class="itinerary-actions">
+            <button class="btn primary small-btn" id="saveItineraryBtn">
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/1828/1828914.png"
+                alt="save icon"
+                class="btn-icon"
+              />
+              Lưu Lộ Trình
+            </button>
+            <button
+              class="btn danger small-btn"
+              id="deleteItineraryBtn"
+              style="display: none"
+            >
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/1828/1828965.png"
+                alt="delete icon"
+                class="btn-icon"
+              />
+              Xóa Lộ Trình
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal itinerary-success-modal" id="itinerarySuccessModal">
+      <div class="modal-content itinerary-success-content">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/4436/4436481.png"
+          alt="success icon"
+          class="success-icon"
+        />
+        <h3 class="success-title">Lộ Trình Đã Lưu Thành Công!</h3>
+        <p class="success-message-text">
+          Kế hoạch hẹn hò của bạn đã được ghi lại.
+        </p>
+        <button
+          class="btn primary small-btn close-success-modal"
+          id="closeItinerarySuccessModal"
+        >
+          Đóng
+        </button>
+      </div>
+    </div>
+    <div class="modal share-modal" id="shareModal">
+      <div class="modal-content share-content">
+        <div class="share-header">
+          <h3 class="share-title">Chia Sẻ Kỷ Niệm</h3>
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/1828/1828640.png"
+            alt="close"
+            class="close-modal close-share-modal"
+            id="closeShareModal"
+          />
+        </div>
+        <div class="share-body">
+          <div class="share-preview">
+            <div class="share-preview-image">
+              <img src="" alt="Preview" id="sharePreviewImage" />
+            </div>
+            <div class="share-preview-info">
+              <h4 id="sharePreviewTitle">Tiêu đề kỷ niệm</h4>
+              <p id="sharePreviewDesc">Mô tả ngắn về kỷ niệm</p>
+            </div>
+          </div>
+
+          <div class="share-options">
+            <h4>Chia sẻ qua</h4>
+            <div class="social-share-buttons">
+              <button
+                class="social-share-btn facebook"
+                data-platform="facebook"
+              >
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/733/733547.png"
+                  alt="Facebook"
+                />
+                <span>Facebook</span>
+              </button>
+              <button
+                class="social-share-btn messenger"
+                data-platform="messenger"
+              >
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/733/733585.png"
+                  alt="Messenger"
+                />
+                <span>Messenger</span>
+              </button>
+              <button class="social-share-btn zalo" data-platform="zalo">
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/5968/5968841.png"
+                  alt="Zalo"
+                />
+                <span>Zalo</span>
+              </button>
+              <button
+                class="social-share-btn whatsapp"
+                data-platform="whatsapp"
+              >
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/733/733585.png"
+                  alt="WhatsApp"
+                />
+                <span>WhatsApp</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="share-link-section">
+            <h4>Hoặc sao chép liên kết</h4>
+            <div class="share-link-container">
+              <input type="text" id="shareLink" readonly />
+              <button class="copy-link-btn" id="copyLinkBtn">
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/1828/1828914.png"
+                  alt="Copy"
+                />
+                <span>Sao chép</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="../script/index.js"></script>
+    <!-- Leaflet CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../script/map.js"></script>
+    <script src="../script/dashboard.js"></script>
+  </body>
+</html>
