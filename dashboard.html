@@ -930,6 +930,33 @@
             "
           />
         </div>
+        <!-- Thêm các phần tử preview cho chia sẻ -->
+        <div
+          class="modal-body share-preview"
+          style="
+            margin-top: 20px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+          "
+        >
+          <h4>Xem trước chia sẻ:</h4>
+          <img
+            id="sharePreviewImage"
+            src=""
+            alt="Preview Image"
+            style="
+              width: 100%;
+              max-height: 200px;
+              object-fit: cover;
+              border-radius: 8px;
+              margin-bottom: 10px;
+            "
+          />
+          <h5 id="sharePreviewTitle" style="margin-bottom: 5px"></h5>
+          <p id="sharePreviewDesc" style="font-size: 0.9em; color: #666"></p>
+          <input type="hidden" id="shareLink" value="" />
+          <!-- Đây là link ẩn được dùng bởi JS -->
+        </div>
       </div>
     </div>
   </body>
