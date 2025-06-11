@@ -892,5 +892,45 @@
         </div>
       </div>
     </div>
+    <!-- Share Modal -->
+    <div class="modal" id="shareModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Chia Sẻ Địa Điểm</h2>
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/1828/1828640.png"
+            alt="close"
+            class="close-modal"
+            id="closeShareModal"
+          />
+        </div>
+        <div class="modal-body">
+          <p>Chọn cách bạn muốn chia sẻ địa điểm này:</p>
+          <div class="share-options">
+            <button class="btn primary" id="shareCopyLinkBtn">
+              Sao chép liên kết
+            </button>
+            <button class="btn primary" id="shareFacebookBtn">
+              Chia sẻ lên Facebook
+            </button>
+            <button class="btn primary" id="shareTwitterBtn">
+              Chia sẻ lên Twitter
+            </button>
+          </div>
+          <input
+            type="text"
+            id="shareableLink"
+            readonly
+            style="
+              width: 100%;
+              padding: 10px;
+              margin-top: 20px;
+              border: 1px solid #ddd;
+              border-radius: 5px;
+            "
+          />
+        </div>
+      </div>
+    </div>
   </body>
 </html>
