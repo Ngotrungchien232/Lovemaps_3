@@ -45,16 +45,15 @@ document.addEventListener("DOMContentLoaded", function () {
   const profileModal = document.getElementById("profileModal");
   const closeProfileModalBtn = document.getElementById("closeProfileModal");
   const profileEmail = document.getElementById("profileEmail");
-  const profileServicesList = document.getElementById("profileServicesList");
   const editProfileBtn = document.getElementById("editProfileBtn");
 
   // New Profile Elements
-  const profileAvatarImg = document.getElementById("profileAvatar");
+  const profileAvatarImg = document.getElementById("profileAvatarImg");
   const avatarUploadInput = document.getElementById("avatarUploadInput");
   const uploadAvatarBtn = document.getElementById("uploadAvatarBtn");
-  const profileUsernameInput = document.getElementById("profileUsername");
-  const profileLoveDateInput = document.getElementById("profileLoveDate");
-  const profileBioInput = document.getElementById("profileBio");
+  const profileUsernameInput = document.getElementById("profileUsernameInput");
+  const profileLoveDateInput = document.getElementById("profileLoveDateInput");
+  const profileBioInput = document.getElementById("profileBioInput");
   const saveProfileBtn = document.getElementById("saveProfileBtn");
 
   const statsLocationsCheckedIn = document.getElementById(
