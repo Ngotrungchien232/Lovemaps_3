@@ -500,5 +500,400 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="/Lovemaps_3/script/dashboard.js"></script>
     <script src="/Lovemaps_3/script/map.js"></script>
+    <!-- Location Detail Modal -->
+    <div class="modal" id="locationDetailModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Chi tiết địa điểm</h2>
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/1828/1828640.png"
+            alt="close"
+            class="close-modal"
+            id="closeLocationDetailModal"
+          />
+        </div>
+        <div class="modal-body">
+          <div class="carousel-container">
+            <img
+              id="detailCarouselImg"
+              src=""
+              alt="Location Image"
+              class="carousel-img"
+            />
+            <button class="carousel-nav prev" id="detailCarouselPrev">
+              &#10094;
+            </button>
+            <button class="carousel-nav next" id="detailCarouselNext">
+              &#10095;
+            </button>
+            <span class="image-counter" id="detailImageCounter">0/0</span>
+          </div>
+          <label for="detailLocationName">Tên địa điểm:</label>
+          <p id="detailLocationName"></p>
+          <!-- This will be replaced by input dynamically -->
+          <label for="detailAddressText">Địa chỉ:</label>
+          <p id="detailAddressText"></p>
+          <!-- This will be replaced by input dynamically -->
+          <label for="detailDateText">Ngày kỷ niệm:</label>
+          <p id="detailDateText"></p>
+          <!-- This will be replaced by input dynamically -->
+          <label for="detailMemoryNote">Ghi chú kỷ niệm:</label>
+          <textarea
+            id="detailMemoryNote"
+            placeholder="Ghi chú kỷ niệm"
+          ></textarea>
+          <label for="detailLocationTags">Tags:</label>
+          <p id="detailLocationTags"></p>
+          <!-- This will be replaced by input dynamically -->
+          <input type="file" id="detailImageUpload" accept="image/*" multiple />
+        </div>
+        <div class="modal-footer">
+          <button class="btn primary" id="saveLocationBtn">Lưu</button>
+          <button class="btn secondary" id="deleteLocationBtn">Xóa</button>
+        </div>
+      </div>
+    </div>
+    <!-- Confirmation Modal -->
+    <div class="modal" id="deleteConfirmationModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/1828/1828640.png"
+            alt="close"
+            class="close-modal"
+            id="closeConfirmationModal"
+          />
+        </div>
+        <div class="modal-body">
+          <div class="modal-icon">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/1828/1828640.png"
+              alt="warning"
+              class="warning-icon"
+            />
+          </div>
+          <h3>Xác nhận</h3>
+          <p class="confirmation-message">Bạn có chắc chắn muốn xóa mục này?</p>
+          <div class="modal-buttons">
+            <button class="btn primary" id="confirmDeleteBtn">Xác nhận</button>
+            <button class="btn secondary" id="cancelDeleteBtn">Hủy</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Journal Modal -->
+    <div class="modal" id="journalModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Nhật Ký</h2>
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/1828/1828640.png"
+            alt="close"
+            class="close-modal"
+            id="closeJournalModalBtn"
+          />
+        </div>
+        <div class="modal-body">
+          <label for="journalDateInput">Ngày:</label>
+          <input type="date" id="journalDateInput" />
+          <span class="error-message" id="journalDateError"></span>
+          <label for="journalLocationInput">Địa điểm:</label>
+          <input
+            type="text"
+            id="journalLocationInput"
+            placeholder="Tên địa điểm"
+          />
+          <label for="journalContentInput">Nội dung:</label>
+          <textarea
+            id="journalContentInput"
+            placeholder="Nội dung nhật ký"
+          ></textarea>
+          <span class="error-message" id="journalContentError"></span>
+          <input
+            type="file"
+            id="journalImageUpload"
+            accept="image/*"
+            multiple
+          />
+          <div id="journalImagePreview" class="image-preview-container"></div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn primary" id="saveJournalBtn">Lưu Nhật Ký</button>
+          <button class="btn secondary" id="deleteJournalBtn">
+            Xóa Nhật Ký
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Journal List Modal -->
+    <div class="modal" id="journalListModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Danh sách Nhật Ký</h2>
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/1828/1828640.png"
+            alt="close"
+            class="close-modal"
+            id="closeJournalListModalBtn"
+          />
+        </div>
+        <div class="modal-body">
+          <div class="journal-cards-grid" id="journalCardsGrid">
+            <!-- Journal cards will be rendered here by JavaScript -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Journal Success Modal -->
+    <div class="modal" id="journalSuccessModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/1828/1828640.png"
+            alt="close"
+            class="close-modal"
+            id="closeJournalSuccessModalBtn"
+          />
+        </div>
+        <div class="modal-body">
+          <div class="modal-icon">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/1828/1828956.png"
+              alt="success"
+              class="success-icon"
+            />
+          </div>
+          <h3>Thành công!</h3>
+          <p>Nhật ký của bạn đã được lưu.</p>
+          <div class="modal-buttons">
+            <button class="btn primary" id="okJournalSuccessBtn">OK</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Profile Modal -->
+    <div class="modal" id="profileModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Hồ sơ User</h2>
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/1828/1828640.png"
+            alt="close"
+            class="close-modal"
+            id="closeProfileModalBtn"
+          />
+        </div>
+        <div class="modal-body">
+          <div class="profile-avatar-upload">
+            <img
+              id="profileImagePreview"
+              src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
+              alt="User Avatar"
+              class="profile-avatar-large"
+            />
+            <label for="profileImageUpload" class="upload-icon">
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/1828/1828951.png"
+                alt="upload"
+              />
+            </label>
+            <input
+              type="file"
+              id="profileImageUpload"
+              accept="image/*"
+              class="hidden"
+            />
+          </div>
+          <label for="profileName">Tên:</label>
+          <p id="profileName">Tên User</p>
+          <input
+            type="text"
+            id="editProfileName"
+            class="modal-editable-input hidden"
+          />
+
+          <label for="profileEmail">Email:</label>
+          <p id="profileEmail">user@example.com</p>
+          <input
+            type="email"
+            id="editProfileEmail"
+            class="modal-editable-input hidden"
+          />
+
+          <label for="profileJoinDate">Ngày tham gia:</label>
+          <p id="profileJoinDate">01/01/2023</p>
+
+          <div class="profile-stats">
+            <div class="stat-item">
+              <h4>Địa điểm đã lưu</h4>
+              <p id="profileTotalLocations">0</p>
+            </div>
+            <div class="stat-item">
+              <h4>Kỷ niệm đã lưu</h4>
+              <p id="profileTotalMemories">0</p>
+            </div>
+            <div class="stat-item">
+              <h4>Nhật ký đã viết</h4>
+              <p id="profileTotalJournals">0</p>
+            </div>
+            <div class="stat-item">
+              <h4>Lịch trình đã tạo</h4>
+              <p id="profileTotalItineraries">0</p>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn primary" id="editProfileBtn">
+            Chỉnh sửa hồ sơ
+          </button>
+          <button class="btn primary hidden" id="saveProfileBtn">
+            Lưu thay đổi
+          </button>
+          <button class="btn secondary hidden" id="cancelProfileEditBtn">
+            Hủy
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Profile Success Modal -->
+    <div class="modal" id="profileSuccessModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/1828/1828640.png"
+            alt="close"
+            class="close-modal"
+            id="closeProfileSuccessModalBtn"
+          />
+        </div>
+        <div class="modal-body">
+          <div class="modal-icon">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/1828/1828956.png"
+              alt="success"
+              class="success-icon"
+            />
+          </div>
+          <h3>Thành công!</h3>
+          <p>Hồ sơ của bạn đã được cập nhật.</p>
+          <div class="modal-buttons">
+            <button class="btn primary" id="okProfileSuccessBtn">OK</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Welcome Modal (if applicable, for initial login) -->
+    <div class="modal" id="welcomeModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Chào mừng bạn đến với Love Map!</h2>
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/1828/1828640.png"
+            alt="close"
+            class="close-modal"
+            id="closeWelcomeModalBtn"
+          />
+        </div>
+        <div class="modal-body">
+          <p>Bắt đầu hành trình tình yêu của bạn ngay hôm nay!</p>
+          <p>
+            Thêm địa điểm yêu thích, lưu giữ kỷ niệm và viết nhật ký tình yêu.
+          </p>
+          <div class="modal-buttons">
+            <button class="btn primary" id="startExploringBtn">
+              Bắt đầu khám phá
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Memory Collection Modal (for image viewing/management) -->
+    <div class="modal" id="memoryCollectionModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Bộ Sưu Tập Ảnh Kỷ Niệm</h2>
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/1828/1828640.png"
+            alt="close"
+            class="close-modal"
+            id="closeMemoryCollectionModalBtn"
+          />
+        </div>
+        <div class="modal-body">
+          <div class="image-preview-container" id="memoryImagePreview">
+            <!-- Images will be displayed here -->
+          </div>
+          <input type="file" id="memoryUploadInput" accept="image/*" multiple />
+          <div class="modal-buttons">
+            <button class="btn primary" id="saveMemoryCollectionBtn">
+              Lưu Bộ Sưu Tập
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Itinerary Modal -->
+    <div class="modal" id="itineraryModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Lịch Trình</h2>
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/1828/1828640.png"
+            alt="close"
+            class="close-modal"
+            id="closeItineraryModalBtn"
+          />
+        </div>
+        <div class="modal-body">
+          <label for="itineraryNameInput">Tên lịch trình:</label>
+          <input
+            type="text"
+            id="itineraryNameInput"
+            placeholder="Tên lịch trình"
+          />
+          <label for="itineraryDescriptionInput">Mô tả:</label>
+          <textarea
+            id="itineraryDescriptionInput"
+            placeholder="Mô tả lịch trình"
+          ></textarea>
+          <!-- Itinerary items would be listed here -->
+        </div>
+        <div class="modal-footer">
+          <button class="btn primary" id="saveItineraryBtn">
+            Lưu Lịch Trình
+          </button>
+          <button class="btn secondary" id="deleteItineraryBtn">
+            Xóa Lịch Trình
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Itinerary Success Modal -->
+    <div class="modal" id="itinerarySuccessModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/1828/1828640.png"
+            alt="close"
+            class="close-modal"
+            id="closeItinerarySuccessModalBtn"
+          />
+        </div>
+        <div class="modal-body">
+          <div class="modal-icon">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/1828/1828956.png"
+              alt="success"
+              class="success-icon"
+            />
+          </div>
+          <h3>Thành công!</h3>
+          <p>Lịch trình của bạn đã được lưu.</p>
+          <div class="modal-buttons">
+            <button class="btn primary" id="okItinerarySuccessBtn">OK</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
